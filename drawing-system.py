@@ -331,13 +331,24 @@ def run_draw():
 # ---------------------------------------------------------------------------
 # Display
 # ---------------------------------------------------------------------------
-def print_team_fixtures(teams):
-    for t in sorted(teams, key=lambda x: (x.pot, x.name)):
-        home_str = ", ".join(f"{o.name} (H)" for o in t.home)
-        away_str = ", ".join(f"{o.name} (A)" for o in t.away)
-        print(f"\nPot {t.pot} | {t.name} ({t.assoc})")
-        print(f"  Home: {home_str}")
-        print(f"  Away: {away_str}")
+def print_pot_tables(teams):
+    """Print one UEFA-style table per pot: rows are the pot's 9 teams,
+    columns are their 8 opponents with (H) home / (A) away markers."""
+    col_w = 26
+    headers = ["Team"] + [f"Opp {i}" for i in range(1, 9)]
+
+    def row_str(cells):
+        return " | ".join(c.ljust(col_w)[:col_w] for c in cells)
+
+    for p in (1, 2, 3, 4):
+        pot_teams = sorted((t for t in teams if t.pot == p), key=lambda t: t.name)
+        print(f"\n=========== Pot {p} ===========")
+        print(row_str(headers))
+        print(" | ".join("-" * col_w for _ in headers))
+        for t in pot_teams:
+            opps = [f"{o.name} (H)" for o in sorted(t.home, key=lambda o: o.name)]
+            opps += [f"{o.name} (A)" for o in sorted(t.away, key=lambda o: o.name)]
+            print(row_str([f"{t.name} ({t.assoc})"] + opps))
 
 
 def print_pots():
@@ -358,7 +369,7 @@ def main():
         if choice == "1":
             teams, attempts = run_draw()
             print(f"\nDraw complete (took {attempts} attempt(s) to satisfy all rules).")
-            print_team_fixtures(teams)
+            print_pot_tables(teams)
         elif choice == "2":
             print_pots()
         elif choice == "3":

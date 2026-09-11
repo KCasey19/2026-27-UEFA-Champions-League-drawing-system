@@ -45,11 +45,21 @@ Choose an option:
 
 Once running, the program offers an interactive menu:
 
-| Option | Action                                                        |
-|--------|---------------------------------------------------------------|
-| **1**  | Run a new draw and print every team's home/away fixtures      |
-| **2**  | Show the 4 pots of teams used for the draw                    |
-| **3**  | Quit the program                                              |
+| Option | Action                                                                            |
+|--------|-----------------------------------------------------------------------------------|
+| **1**  | Run a new draw and print 4 UEFA-style tables (one per pot): each team's 8 opponents with (H)/(A) markers |
+| **2**  | Show the 4 pots of teams used for the draw                                        |
+| **3**  | Quit the program                                                                  |
+
+After running a draw, the output is one table per pot. Every row is one of the pot's 9 teams; the 8 columns are that team's opponents, marked **(H)** for home matches and **(A)** for away matches:
+
+```text
+=========== Pot 1 ===========
+Team                       | Opp 1                     | Opp 2                     | ...
+---------------------------|---------------------------|---------------------------|
+Arsenal (ENG)              | Bayern München (A)        | Barcelona (H)             | ...
+...
+```
 
 ## Project structure
 
