@@ -352,21 +352,28 @@ def print_pot_tables(teams):
 
 
 def print_pots():
-    """Print a single table with 4 columns (one per pot); each column
-    lists that pot's 9 teams with their association codes."""
+    """Print a single bordered table with 4 columns (one per pot);
+    each column lists that pot's 9 teams with their association codes."""
     pots = {p: [t for t in TEAMS if t[2] == p] for p in (1, 2, 3, 4)}
     headers = ["Pot 1", "Pot 2", "Pot 3", "Pot 4"]
     col_w = 26
+    n_cols = 4
 
-    def row_str(cells):
-        return " | ".join(c.ljust(col_w)[:col_w] for c in cells)
+    def border():
+        seg = "-" * (col_w + 2)
+        return "+" + "+".join([seg] * n_cols) + "+"
+
+    def row_line(cells):
+        return "|" + "|".join(" " + c.ljust(col_w)[:col_w] + " " for c in cells) + "|"
 
     print()
-    print(row_str(headers))
-    print(" | ".join("-" * col_w for _ in headers))
+    print(border())
+    print(row_line(headers))
+    print(border())
     for i in range(9):
         cells = [f"{pots[p][i][0]} ({pots[p][i][1]})" for p in (1, 2, 3, 4)]
-        print(row_str(cells))
+        print(row_line(cells))
+    print(border())
 
 
 def main():

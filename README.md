@@ -61,13 +61,15 @@ Arsenal (ENG)              | Bayern München (A)        | Barcelona (H)         
 ...
 ```
 
-Choosing option **2** shows all four pots side by side as columns:
+Choosing option **2** shows all four pots side by side as columns inside a bordered table:
 
 ```text
-Pot 1                      | Pot 2                     | Pot 3                     | Pot 4
----------------------------|---------------------------|---------------------------|-----------
-Paris Saint-Germain (FRA)  | Borussia Dortmund (GER)   | Feyenoord (NED)           | Slavia Praha (CZE)
++----------------------------+----------------------------+----------------------------+----------------------------+
+| Pot 1                      | Pot 2                      | Pot 3                      | Pot 4                      |
++----------------------------+----------------------------+----------------------------+----------------------------+
+| Paris Saint-Germain (FRA)  | Borussia Dortmund (GER)    | Feyenoord (NED)            | Slavia Praha (CZE)         |
 ...
++----------------------------+----------------------------+----------------------------+----------------------------+
 ```
 
 ## Project structure
