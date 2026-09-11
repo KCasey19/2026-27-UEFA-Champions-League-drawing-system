@@ -48,7 +48,7 @@ Once running, the program offers an interactive menu:
 | Option | Action                                                                            |
 |--------|-----------------------------------------------------------------------------------|
 | **1**  | Run a new draw and print 4 UEFA-style tables (one per pot): each team's 8 opponents with (H)/(A) markers |
-| **2**  | Show the 4 pots of teams used for the draw                                        |
+| **2**  | Show the 4 pots as a single table with one column per pot (each listing its 9 teams) |
 | **3**  | Quit the program                                                                  |
 
 After running a draw, the output is one table per pot. Every row is one of the pot's 9 teams; the 8 columns are that team's opponents, marked **(H)** for home matches and **(A)** for away matches:
@@ -58,6 +58,15 @@ After running a draw, the output is one table per pot. Every row is one of the p
 Team                       | Opp 1                     | Opp 2                     | ...
 ---------------------------|---------------------------|---------------------------|
 Arsenal (ENG)              | Bayern München (A)        | Barcelona (H)             | ...
+...
+```
+
+Choosing option **2** shows all four pots side by side as columns:
+
+```text
+Pot 1                      | Pot 2                     | Pot 3                     | Pot 4
+---------------------------|---------------------------|---------------------------|-----------
+Paris Saint-Germain (FRA)  | Borussia Dortmund (GER)   | Feyenoord (NED)           | Slavia Praha (CZE)
 ...
 ```
 

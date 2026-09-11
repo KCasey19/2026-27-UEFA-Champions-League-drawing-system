@@ -352,11 +352,21 @@ def print_pot_tables(teams):
 
 
 def print_pots():
+    """Print a single table with 4 columns (one per pot); each column
+    lists that pot's 9 teams with their association codes."""
     pots = {p: [t for t in TEAMS if t[2] == p] for p in (1, 2, 3, 4)}
-    for p in (1, 2, 3, 4):
-        print(f"\nPot {p}:")
-        for name, assoc, _ in pots[p]:
-            print(f"  {name} ({assoc})")
+    headers = ["Pot 1", "Pot 2", "Pot 3", "Pot 4"]
+    col_w = 26
+
+    def row_str(cells):
+        return " | ".join(c.ljust(col_w)[:col_w] for c in cells)
+
+    print()
+    print(row_str(headers))
+    print(" | ".join("-" * col_w for _ in headers))
+    for i in range(9):
+        cells = [f"{pots[p][i][0]} ({pots[p][i][1]})" for p in (1, 2, 3, 4)]
+        print(row_str(cells))
 
 
 def main():
