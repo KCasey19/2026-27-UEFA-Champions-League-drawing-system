@@ -13,7 +13,7 @@ Rules implemented:
   - A team can face at most 2 opponents total from any other single
     association.
 
-Run:  python3 cl_draw.py
+Run:  python3 drawing-system.py
 """
 
 import random
