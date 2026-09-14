@@ -1,0 +1,46 @@
+<html lang="en">
+    <!DOCTYPE html>
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UEFA Champions League 2026/27 League Phase Draw</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>UEFA Champions League</h1>
+            <h2>2026/27 League Phase Draw Simulator</h2>
+        </header>
+
+        <div class="controls">
+            <button id="runDrawBtn" class="btn btn-primary">
+                <span class="btn-icon">⚽</span>
+                Run New Draw
+            </button>
+            <button id="showPotsBtn" class="btn btn-secondary">
+                <span class="btn-icon">📋</span>
+                Show Pots
+            </button>
+            <button id="exportBtn" class="btn btn-export" style="display: none;">
+                <span class="btn-icon">💾</span>
+                Export Results
+            </button>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Drawing teams...</p>
+        </div>
+
+        <div id="results" class="results"></div>
+
+        <footer>
+            <p>This is an unofficial fan simulation and is not affiliated with UEFA.</p>
+            <p>Team names and pot data are used for educational/entertainment purposes.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
